@@ -16,39 +16,32 @@ import static com.example.javafxcalculator.Formula.Formula.formula;
 
 public class HelloApplication extends Application implements EventHandler<ActionEvent> {
 
-    Button button0, button1, button2, button3, button4, button5, button6, button7;
-    Button button8, button9, button10, button11, button12, button13, button14, button15, button16;
     Label label;
     Button[] buttons;
     String TotalText = "";
     Stage stage;
+    VBox vBox = new VBox();
+    HBox hBox = new HBox();
+    HBox hBox1 = new HBox();
+    HBox hBox2 = new HBox();
+    HBox hBox3 = new HBox();
+    HBox hBox4 = new HBox();
+    HBox hBox5 = new HBox();
+    HBox[] hBoxS = {hBox1, hBox2, hBox3, hBox4, hBox5};
 
     @Override
     public void start(Stage stage) {
         this.stage = stage;
-        VBox vBox = new VBox();
-        HBox hBox1 = new HBox();
-        HBox hBox2 = new HBox();
-        HBox hBox3 = new HBox();
-        HBox hBox4 = new HBox();
-        HBox hBox5 = new HBox();
+        buttons = new Button[17];
         final String[] texts = {
                 "OFF", "AC", "/", "*",
                 "1", "2", "3", "-",
                 "4", "5", "6", "+",
                 "7", "8", "9", "=",
                 "0"};
-        buttons = new Button[]{
-                button0, button1, button2, button3,
-                button4, button5, button6, button7,
-                button8, button9, button10, button11,
-                button12, button13, button14, button15,
-                button16};
-
-        HBox[] hBoxS = new HBox[]{hBox1, hBox2, hBox3, hBox4, hBox5};
 
         stage.setTitle("Calculator");
-        HBox hBox = new HBox();
+
         hBox.setPadding(new Insets(10));
         hBox.setSpacing(10);
 
