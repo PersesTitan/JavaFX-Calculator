@@ -12,11 +12,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import static com.example.javafxcalculator.Formula.Formula.formula;
 
 public class HelloApplication extends Application implements EventHandler<ActionEvent> {
 
@@ -89,31 +85,9 @@ public class HelloApplication extends Application implements EventHandler<Action
         switch (buttonText) {
             case "OFF" -> stage.close();
             case "AC" -> TotalText = "";
-            case "=" -> cal();
+            case "=" -> TotalText = Double.toString(formula(TotalText, true));
             default -> TotalText += buttonText;
         }
         label.setText(TotalText);
-    }
-
-    private void cal() {
-        String[] numbers = TotalText.split("[*|/|\\-|+]");
-        String[] texts = TotalText.split("[0-9]");
-
-        List<String> numberList = new ArrayList<>(Arrays.asList(numbers));
-        List<String> textList = new ArrayList<>(Arrays.asList(texts));
-        textList.removeAll(Collections.singletonList(null));
-        textList.removeAll(Collections.singletonList(""));
-        assert numberList.size() == textList.size()+1;
-        double total = Integer.parseInt(numberList.get(0));
-        for (int i = 0; i<textList.size(); i++) {
-            switch (textList.get(i)) {
-                case "+" -> total += Integer.parseInt(numberList.get(i + 1));
-                case "-" -> total -= Integer.parseInt(numberList.get(i + 1));
-                case "*" -> total *= Integer.parseInt(numberList.get(i + 1));
-                case "/" -> total /= Integer.parseInt(numberList.get(i + 1));
-            }
-        }
-
-        TotalText = String.valueOf(total);
     }
 }
