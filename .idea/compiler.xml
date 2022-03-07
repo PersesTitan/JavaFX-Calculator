@@ -13,4 +13,9 @@
       <module name="JavaFX-Calculator" target="18" />
     </bytecodeTargetLevel>
   </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="JavaFX-Calculator" options="--add-exports org.junit.jupiter.engine/Formula=com.example.javafxcalculator --add-exports com.example.formulafx/com.example.Formula=com.example.javafxcalculator" />
+    </option>
+  </component>
 </project>
